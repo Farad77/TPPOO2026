@@ -17,12 +17,12 @@ namespace TP1_Encapsulation
             
             if (health <= 0)
             {
-                Debug.Log("Player is dead");
+                //Debug.Log("Player is dead");
             }
 
             // La vitesse peut être modifiée à n'importe quelle valeur
             // Le personnage peut avoir une vitesse négative car rien ne l'empêche
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            //transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
         
         public void GainGold(int amount)
