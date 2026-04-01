@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace TP1_Encapsulation
 {
-    [RequireComponent(typeof(PlayerCharacterBroken))]
+    [RequireComponent(typeof(PlayerCharacter))]
     public class PlayerCharacterController : MonoBehaviour
     {
-        private PlayerCharacterBroken playerCharacter;
+        private PlayerCharacter playerCharacter;
         private Rigidbody rb;
 
         [SerializeField] private float jumpForce = 10f;
@@ -31,7 +31,7 @@ namespace TP1_Encapsulation
 
         private void Awake()
         {
-            playerCharacter = GetComponent<PlayerCharacterBroken>();
+            playerCharacter = GetComponent<PlayerCharacter>();
             animator = GetComponent<Animator>();
 
             // Configurer le rigidbody pour un jeu 3D
@@ -79,7 +79,7 @@ namespace TP1_Encapsulation
         private void FixedUpdate()
         {
             // Ne pas permettre de mouvement si le personnage est mort
-            if (playerCharacter.health <= 0) return;
+            if (playerCharacter.getHealth() <= 0) return;
 
             // Appliquer le mouvement
             if (!isDashing)
@@ -91,7 +91,7 @@ namespace TP1_Encapsulation
         private void Move()
         {
             // Utiliser la vitesse de d�placement du PlayerCharacter
-            float currentSpeed = playerCharacter.moveSpeed;
+            float currentSpeed = playerCharacter.getMoveSpeed();
 
             // Mouvement pour un jeu 3D
             Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized * currentSpeed;
@@ -106,21 +106,21 @@ namespace TP1_Encapsulation
 
         private void Jump()
         {
-            
+
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
         private void CheckGrounded()
         {
-            
+
             isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
         }
 
         private void TryDash()
         {
-            
-                StartCoroutine(DashRoutine());
-            
+
+            StartCoroutine(DashRoutine());
+
         }
 
         private IEnumerator DashRoutine()
@@ -133,10 +133,10 @@ namespace TP1_Encapsulation
                 dashEffect.Play();
             }
 
-           
+
 
             // Appliquer le dash
-            float originalSpeed = playerCharacter.moveSpeed;
+            float originalSpeed = playerCharacter.getMoveSpeed();
             float dashSpeed = originalSpeed * dashMultiplier;
 
             // Pour 3D
@@ -173,20 +173,20 @@ namespace TP1_Encapsulation
                     break;
                 case "Health":
                     // R�cup�rer de la vie
-                    playerCharacter.health += 20;
+                    playerCharacter.Heal(20);
                     break;
-                
+
             }
         }
 
         private IEnumerator SpeedBoostRoutine(float duration, float multiplier)
         {
-            float originalSpeed = playerCharacter.moveSpeed;
-            playerCharacter.moveSpeed=originalSpeed* multiplier;
+            float originalSpeed = playerCharacter.getMoveSpeed();
+            playerCharacter.setMoveSpeed(originalSpeed * multiplier);
 
             yield return new WaitForSeconds(duration);
 
-            playerCharacter.moveSpeed=originalSpeed;
+            playerCharacter.setMoveSpeed(originalSpeed);
         }
 
         // Dessiner les gizmos pour le debug
