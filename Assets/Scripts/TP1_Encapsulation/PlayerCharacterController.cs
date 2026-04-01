@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// Corrections were made to accomodate the new PlayerCharacter instead of PlayerCharacterBroken. Also the rigidbody got constraints to fix rotation bugs due to the collisions with the dash.
+/// The spawn height of groundCheck was upped so it would detect the terrain right under the box for more accurate and generally better collisions.
+/// 
+/// </summary>
+
 namespace TP1_Encapsulation
 {
-    [RequireComponent(typeof(PlayerCharacterBroken))]
+    [RequireComponent(typeof(PlayerCharacter))]
     public class PlayerCharacterController : MonoBehaviour
     {
-        private PlayerCharacterBroken playerCharacter;
+        private PlayerCharacter playerCharacter;
         private Rigidbody rb;
 
         [SerializeField] private float jumpForce = 10f;
@@ -31,7 +38,7 @@ namespace TP1_Encapsulation
 
         private void Awake()
         {
-            playerCharacter = GetComponent<PlayerCharacterBroken>();
+            playerCharacter = GetComponent<PlayerCharacter>();
             animator = GetComponent<Animator>();
 
             // Configurer le rigidbody pour un jeu 3D
@@ -47,7 +54,7 @@ namespace TP1_Encapsulation
                 // Cr�er un point de v�rification du sol s'il n'est pas d�fini
                 groundCheck = new GameObject("GroundCheck").transform;
                 groundCheck.SetParent(transform);
-                groundCheck.localPosition = new Vector3(0, -1f, 0);
+                groundCheck.localPosition = new Vector3(0, -0.5f, 0); //adjusted spawn height to -0.5f instead of -1f
             }
         }
 
@@ -79,7 +86,7 @@ namespace TP1_Encapsulation
         private void FixedUpdate()
         {
             // Ne pas permettre de mouvement si le personnage est mort
-            if (playerCharacter.health <= 0) return;
+            if (playerCharacter.IsDead()) return;
 
             // Appliquer le mouvement
             if (!isDashing)
@@ -90,8 +97,8 @@ namespace TP1_Encapsulation
 
         private void Move()
         {
-            // Utiliser la vitesse de d�placement du PlayerCharacter
-            float currentSpeed = playerCharacter.moveSpeed;
+            // Utiliser la vitesse de deplacement du PlayerCharacter
+            float currentSpeed = playerCharacter.GetSpeed();
 
             // Mouvement pour un jeu 3D
             Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized * currentSpeed;
@@ -136,7 +143,7 @@ namespace TP1_Encapsulation
            
 
             // Appliquer le dash
-            float originalSpeed = playerCharacter.moveSpeed;
+            float originalSpeed = playerCharacter.GetSpeed();
             float dashSpeed = originalSpeed * dashMultiplier;
 
             // Pour 3D
@@ -173,7 +180,7 @@ namespace TP1_Encapsulation
                     break;
                 case "Health":
                     // R�cup�rer de la vie
-                    playerCharacter.health += 20;
+                    playerCharacter.Heal(20);
                     break;
                 
             }
@@ -181,12 +188,12 @@ namespace TP1_Encapsulation
 
         private IEnumerator SpeedBoostRoutine(float duration, float multiplier)
         {
-            float originalSpeed = playerCharacter.moveSpeed;
-            playerCharacter.moveSpeed=originalSpeed* multiplier;
+            float originalSpeed = playerCharacter.GetSpeed();
+            playerCharacter.SetSpeed(originalSpeed* multiplier);
 
             yield return new WaitForSeconds(duration);
 
-            playerCharacter.moveSpeed=originalSpeed;
+            playerCharacter.SetSpeed(originalSpeed);
         }
 
         // Dessiner les gizmos pour le debug
