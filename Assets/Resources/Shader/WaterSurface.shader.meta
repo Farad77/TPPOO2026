@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 544f912dea5e3fc449dbdb0b2abaf31b
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _WaveNormal: {instanceID: 0}
+  - _WaveNormal2: {instanceID: 0}
+  - _SurfaceFoam: {instanceID: 0}
+  - _SparkleTexture: {instanceID: 0}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
