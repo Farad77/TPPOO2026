@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6270926201347238090}
   - component: {fileID: 5831541628352785723}
   - component: {fileID: 5144840200179312344}
-  - component: {fileID: 1706702339176277632}
+  - component: {fileID: 4299393077236929504}
   m_Layer: 6
   m_Name: skelette
   m_TagString: Enemy
@@ -64,6 +64,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,9 +87,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &5831541628352785723
 BoxCollider:
@@ -117,10 +121,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8641412197260939047}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -137,7 +141,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1706702339176277632
+--- !u!114 &4299393077236929504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,11 +150,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8641412197260939047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9e25ec95edeb784d97a151ff94e291d, type: 3}
+  m_Script: {fileID: 11500000, guid: fc7ed8cf93332994eb7fc4d37389dec9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 80
-  damage: 15
-  maxSpeed: 6
-  speed: 3
-  detectionRange: 12
+  m_EditorClassIdentifier: Assembly-CSharp::TP2_Heritage.Correction.Skeleton
+  health: 100
+  damage: 1
+  speed: 1
+  detectionRange: 16
+  shootRange: 8
+  arrowPrefab: {fileID: 7727795145275910093, guid: 1a0ceb5e3eb1c9b41a90841cb968efd8, type: 3}
+  shootCooldown: 2
+>>>>>>> 3d57a6a1674c47fab51d7d62098cf0856b4adc27
