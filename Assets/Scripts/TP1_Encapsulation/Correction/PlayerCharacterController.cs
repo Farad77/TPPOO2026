@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TP1_Encapsulation
+namespace TP1_Encapsulation.Correction
 {
-    [RequireComponent(typeof(PlayerCharacterBroken))]
+    [RequireComponent(typeof(PlayerCharacter))]
     public class PlayerCharacterController : MonoBehaviour
     {
         private PlayerCharacter playerCharacter;
@@ -79,20 +79,19 @@ namespace TP1_Encapsulation
         private void FixedUpdate()
         {
             // Ne pas permettre de mouvement si le personnage est mort
-            if (playerCharacter.GetHealth() <= 0) return;
+            if (playerCharacter.Health <= 0) return;
 
             // Appliquer le mouvement
             if (!isDashing)
             {
-                //Move();
+                Move();
             }
-            Move();
         }
 
         private void Move()
         {
             // Utiliser la vitesse de d�placement du PlayerCharacter
-            float currentSpeed = playerCharacter.GetMoveSpeed();
+            float currentSpeed = playerCharacter.MoveSpeed;
 
             // Mouvement pour un jeu 3D
             Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized * currentSpeed;
@@ -107,21 +106,27 @@ namespace TP1_Encapsulation
 
         private void Jump()
         {
-
+            
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
         private void CheckGrounded()
         {
-
+            
             isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
         }
 
         private void TryDash()
         {
-
-            StartCoroutine(DashRoutine());
-
+            // V�rifier si le joueur a assez de mana pour faire un dash
+            if (playerCharacter.SpendMana(dashCost))
+            {
+                StartCoroutine(DashRoutine());
+            }
+            else
+            {
+                Debug.Log("Pas assez de mana pour dash!");
+            }
         }
 
         private IEnumerator DashRoutine()
@@ -134,10 +139,11 @@ namespace TP1_Encapsulation
                 dashEffect.Play();
             }
 
-
+            // Activer l'invincibilit� pendant le dash
+            playerCharacter.ActivateInvincibility(dashDuration);
 
             // Appliquer le dash
-            float originalSpeed = playerCharacter.GetMoveSpeed();
+            float originalSpeed = playerCharacter.MoveSpeed;
             float dashSpeed = originalSpeed * dashMultiplier;
 
             // Pour 3D
@@ -176,13 +182,17 @@ namespace TP1_Encapsulation
                     // R�cup�rer de la vie
                     playerCharacter.Heal(20);
                     break;
-
+                case "Mana":
+                    // R�cup�rer du mana
+                    playerCharacter.SpendMana(-50); // Utilisation n�gative pour gagner du mana
+                    break;
+                    // Autres types de power-ups...
             }
         }
 
         private IEnumerator SpeedBoostRoutine(float duration, float multiplier)
         {
-            float originalSpeed = playerCharacter.GetMoveSpeed();
+            float originalSpeed = playerCharacter.MoveSpeed;
             playerCharacter.SetMoveSpeed(originalSpeed * multiplier);
 
             yield return new WaitForSeconds(duration);
