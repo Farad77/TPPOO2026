@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TP3_Polymorphisme;
 using UnityEngine;
 
 namespace TP1_Encapsulation.Correction
@@ -8,6 +9,7 @@ namespace TP1_Encapsulation.Correction
     public class PlayerCharacterController : MonoBehaviour
     {
         private PlayerCharacter playerCharacter;
+        private WeaponManager weaponManager;
         private Rigidbody rb;
 
         [SerializeField] private float jumpForce = 10f;
@@ -33,6 +35,7 @@ namespace TP1_Encapsulation.Correction
         {
             playerCharacter = GetComponent<PlayerCharacter>();
             animator = GetComponent<Animator>();
+            weaponManager = GetComponent<WeaponManager>();
 
             // Configurer le rigidbody pour un jeu 3D
             rb = GetComponent<Rigidbody>();
@@ -59,6 +62,23 @@ namespace TP1_Encapsulation.Correction
 
             // V�rifier si le joueur est au sol
             CheckGrounded();
+
+            if (Input.GetButtonDown("Mouse ScrollWheel"))
+            {
+                if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+                {
+                    weaponManager.PreviousItem();
+                }
+                else if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+                {
+                    weaponManager.NextItem();
+                }
+            }
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                weaponManager.Use();
+            }
 
             // Gestion du saut
             if (Input.GetButtonDown("Jump") && isGrounded)

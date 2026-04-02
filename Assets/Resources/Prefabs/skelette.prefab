@@ -160,4 +160,3 @@ MonoBehaviour:
   shootRange: 8
   arrowPrefab: {fileID: 7727795145275910093, guid: 1a0ceb5e3eb1c9b41a90841cb968efd8, type: 3}
   shootCooldown: 2
->>>>>>> 3d57a6a1674c47fab51d7d62098cf0856b4adc27
