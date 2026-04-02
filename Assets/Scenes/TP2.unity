@@ -186,14 +186,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 794586195629477052, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 32653294}
+      addedObject: {fileID: 32653299}
   m_SourcePrefab: {fileID: 100100000, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
 --- !u!1 &32653293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 794586195629477052, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
   m_PrefabInstance: {fileID: 32653292}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &32653294
+--- !u!114 &32653299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,13 +202,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 32653293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54e764029822b940a0d15e98770a61a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fe5ea9ec754c1340878598e90ee2557, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TP2_Heritage.Zombie
+  m_EditorClassIdentifier: Assembly-CSharp::TP2_Heritage.Correction.Zombie
   health: 100
   damage: 10
   speed: 2
   detectionRange: 10
+  infectionRange: 2
+  infectionDamage: 5
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,10 +713,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7946418422518039884, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946418422518039884, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.7496376
       objectReference: {fileID: 0}
@@ -758,36 +756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: skelette (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5227478500051923493, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8641412197260939047, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2114565935}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
---- !u!1 &2114565934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8641412197260939047, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
-  m_PrefabInstance: {fileID: 2114565933}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2114565935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114565934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9e25ec95edeb784d97a151ff94e291d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TP2_Heritage.Skeleton
-  health: 80
-  damage: 15
-  speed: 3
-  detectionRange: 12
 --- !u!1 &3297608567947134438
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +773,7 @@ GameObject:
   - component: {fileID: 4726583578241422848}
   - component: {fileID: 4134091950456534884}
   - component: {fileID: 7957658081482779241}
+  - component: {fileID: 7957658081482779242}
   m_Layer: 0
   m_Name: gundam
   m_TagString: Untagged
@@ -1066,6 +1040,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9602218, y: 1.8227828, z: 1.9461042}
   m_Center: {x: 0.019305259, y: -0.0077359974, z: -0.025079131}
+--- !u!114 &7957658081482779242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297608567947134438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eeca1b0738f72b46a44f30b526cf107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TP2_Heritage.Correction.Boss
+  health: 0
+  damage: 0
+  speed: 0
+  detectionRange: 0
+  enrageHealthThreshold: 0.3
+  damageMultiplierWhenEnraged: 1.5
+  speedMultiplierWhenEnraged: 1.3
+  minion: {fileID: 8641412197260939047, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
+  maxMinions: 3
+  summonCooldown: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
