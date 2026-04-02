@@ -2,14 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 
-/// Corrections were made to accomodate the new PlayerCharacter instead of PlayerCharacterBroken. Also the rigidbody got constraints to fix rotation bugs due to the collisions with the dash.
-/// The spawn height of groundCheck was upped so it would detect the terrain right under the box for more accurate and generally better collisions.
-/// 
-/// </summary>
-
-namespace TP1_Encapsulation
+namespace TP1_Encapsulation.Correction
 {
     [RequireComponent(typeof(PlayerCharacter))]
     public class PlayerCharacterController : MonoBehaviour
@@ -54,7 +47,7 @@ namespace TP1_Encapsulation
                 // Cr�er un point de v�rification du sol s'il n'est pas d�fini
                 groundCheck = new GameObject("GroundCheck").transform;
                 groundCheck.SetParent(transform);
-                groundCheck.localPosition = new Vector3(0, -0.5f, 0); //adjusted spawn height to -0.5f instead of -1f
+                groundCheck.localPosition = new Vector3(0, -1f, 0);
             }
         }
 
@@ -86,20 +79,19 @@ namespace TP1_Encapsulation
         private void FixedUpdate()
         {
             // Ne pas permettre de mouvement si le personnage est mort
-            if (playerCharacter.IsDead()) return;
+            if (playerCharacter.Health <= 0) return;
 
             // Appliquer le mouvement
             if (!isDashing)
             {
-                //Move();
+                Move();
             }
-            Move();
         }
 
         private void Move()
         {
-            // Utiliser la vitesse de deplacement du PlayerCharacter
-            float currentSpeed = playerCharacter.GetSpeed();
+            // Utiliser la vitesse de d�placement du PlayerCharacter
+            float currentSpeed = playerCharacter.MoveSpeed;
 
             // Mouvement pour un jeu 3D
             Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized * currentSpeed;
@@ -126,9 +118,15 @@ namespace TP1_Encapsulation
 
         private void TryDash()
         {
-            
+            // V�rifier si le joueur a assez de mana pour faire un dash
+            if (playerCharacter.SpendMana(dashCost))
+            {
                 StartCoroutine(DashRoutine());
-            
+            }
+            else
+            {
+                Debug.Log("Pas assez de mana pour dash!");
+            }
         }
 
         private IEnumerator DashRoutine()
@@ -141,10 +139,11 @@ namespace TP1_Encapsulation
                 dashEffect.Play();
             }
 
-           
+            // Activer l'invincibilit� pendant le dash
+            playerCharacter.ActivateInvincibility(dashDuration);
 
             // Appliquer le dash
-            float originalSpeed = playerCharacter.GetSpeed();
+            float originalSpeed = playerCharacter.MoveSpeed;
             float dashSpeed = originalSpeed * dashMultiplier;
 
             // Pour 3D
@@ -183,18 +182,22 @@ namespace TP1_Encapsulation
                     // R�cup�rer de la vie
                     playerCharacter.Heal(20);
                     break;
-                
+                case "Mana":
+                    // R�cup�rer du mana
+                    playerCharacter.SpendMana(-50); // Utilisation n�gative pour gagner du mana
+                    break;
+                    // Autres types de power-ups...
             }
         }
 
         private IEnumerator SpeedBoostRoutine(float duration, float multiplier)
         {
-            float originalSpeed = playerCharacter.GetSpeed();
-            playerCharacter.SetSpeed(originalSpeed* multiplier);
+            float originalSpeed = playerCharacter.MoveSpeed;
+            playerCharacter.SetMoveSpeed(originalSpeed * multiplier);
 
             yield return new WaitForSeconds(duration);
 
-            playerCharacter.SetSpeed(originalSpeed);
+            playerCharacter.SetMoveSpeed(originalSpeed);
         }
 
         // Dessiner les gizmos pour le debug

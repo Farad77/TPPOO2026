@@ -5426,6 +5426,10 @@ GameObject:
   - component: {fileID: 1476695590}
   - component: {fileID: 1476695596}
   m_Layer: 6
+  - component: {fileID: 1476695597}
+  - component: {fileID: 1476695600}
+  - component: {fileID: 1476695599}
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5549,14 +5553,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1476695598
+u!114 &1476695598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476695588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24a700bb6c89e649917732aef0e0d53, type: 3}
   m_Name: 
@@ -5591,6 +5595,8 @@ MonoBehaviour:
   maxSpeed: 20
   baseGold: 10
   maxGold: 0
+  mana: 100
+  maxMana: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
