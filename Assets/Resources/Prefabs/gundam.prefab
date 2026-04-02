@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8330568385582340047}
   - component: {fileID: 2642599968647629505}
   - component: {fileID: 2642599968647629506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: gundam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,9 +84,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2642599968647629505
 MonoBehaviour:

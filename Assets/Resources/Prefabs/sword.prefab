@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2733901211894095062}
   - component: {fileID: 8646703407475245631}
   - component: {fileID: 366257473628296884}
-  - component: {fileID: 2178712877904507771}
+  - component: {fileID: 4376574955051677053}
+  - component: {fileID: 4021764045674814379}
   m_Layer: 0
   m_Name: sword
   m_TagString: Untagged
@@ -83,11 +84,34 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2178712877904507771
+--- !u!65 &4376574955051677053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491077609674934210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2137419, y: 0.15137535, z: 1.9565642}
+  m_Center: {x: 0.019724369, y: -0.019740414, z: -0.01952067}
+--- !u!114 &4021764045674814379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

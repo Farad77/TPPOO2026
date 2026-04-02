@@ -17,4 +17,4 @@
 
 ## Consigne 5 :  Ajoutez une nouvelle arme (par exemple, une hache) pour démontrer la facilité d'extension de votre système.
 
-> La hache que j'ai rajouté a les mêmes fonctionnement de l'épée mais en ayant des dégats en +. L'implémentation n'est pas compliqué étant donné qu'il faut juste lui attribuer un nom et une façon d'attaquer. (ref Axe.cs)
+> La hache que j'ai rajouté a les mêmes fonctionnement de l'épée mais en ayant des dégats en +. L'implémentation n'est pas compliqué étant donné qu'il faut juste lui attribuer un nom et une façon d'attaquer. (ref Axe.csw²)
