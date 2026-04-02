@@ -5,13 +5,18 @@ namespace TP1_Encapsulation
     public class PlayerCharacterBroken : MonoBehaviour
     {
         // Toutes les données sont publiques et peuvent être modifiées n'importe où
-        public string playerName;
+        private string playerName;
+
+       
+
         public int health;
         public int maxHealth;
         public float moveSpeed;
         public int gold;
         public bool isInvincible;
+
         
+
         void Update()
         {
             

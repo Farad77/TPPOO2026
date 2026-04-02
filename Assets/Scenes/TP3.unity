@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e86c9de34f35924d9191a4e51e41610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damages: 0
+  Damages: 6
 --- !u!1 &618700757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2491077609674934210, guid: 61b804b156c13bd4399f2e8f110d7f3e, type: 3}
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d83aea5d6d024842abb0c69b5538f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damages: 0
+  Damages: 10
 --- !u!1001 &684289280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e1085c7b7db504fbefa8d2a18efc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damages: 0
+  Damages: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
