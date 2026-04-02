@@ -46,7 +46,7 @@ namespace TP3_Polymorphisme
             // Trouve l'arme dans la liste et l'affiche
             foreach (var w in weapons)
             {
-                if (w.weaponName == weapon.weaponName)
+                if (w.WeaponName == weapon.WeaponName)
                 {
                     Weapon tempWeapon = Instantiate(w, handPlayer.position, Quaternion.identity);
                     tempWeapon.transform.SetParent(transform);
