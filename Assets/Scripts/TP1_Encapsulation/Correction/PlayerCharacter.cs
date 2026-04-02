@@ -10,9 +10,12 @@ namespace TP1_Encapsulation.Correction
         [SerializeField] private int maxHealth = 100;
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private int gold;
-        [SerializeField] private float mana = 100f; 
-        [SerializeField] private float maxMana = 100f; 
+        [SerializeField] private float mana = 100f;
+        [SerializeField] private float maxMana = 100f;
         private bool isInvincible;
+        private bool isDead = false;
+
+
 
         // Propriétés encapsulées avec validation
         public string PlayerName { get { return playerName; } }
@@ -21,44 +24,50 @@ namespace TP1_Encapsulation.Correction
         public int Health
         {
             get { return health; }
-             set { health = Mathf.Clamp(value, 0, maxHealth); }
+            set { health = Mathf.Clamp(value, 0, maxHealth); }
         }
 
         public int MaxHealth
         {
             get { return maxHealth; }
-             set { maxHealth = Mathf.Max(1, value); }
+            set { maxHealth = Mathf.Max(1, value); }
         }
 
         public float MoveSpeed
         {
             get { return moveSpeed; }
-             set { moveSpeed = Mathf.Clamp(value, 0.5f, 20f); }
+            set { moveSpeed = Mathf.Clamp(value, 0.5f, 20f); }
         }
 
         public int Gold
         {
             get { return gold; }
-             set { gold = Mathf.Max(0, value); }
+            set { gold = Mathf.Max(0, value); }
         }
 
         public bool IsInvincible
         {
             get { return isInvincible; }
-             set { isInvincible = value; }
+            set { isInvincible = value; }
         }
 
-       
+
         public float Mana
         {
             get { return mana; }
-             set { mana = Mathf.Clamp(value, 0, maxMana); }
+            set { mana = Mathf.Clamp(value, 0, maxMana); }
         }
 
         public float MaxMana
         {
             get { return maxMana; }
-             set { maxMana = Mathf.Max(1, value); }
+            set { maxMana = Mathf.Max(1, value); }
+        }
+
+        public bool IsDead
+        {
+            get => isDead;
+            set => isDead = value;
         }
 
         private void Start()
@@ -75,9 +84,9 @@ namespace TP1_Encapsulation.Correction
                 Die();
             }
 
-           
 
-           
+
+
             if (Mana < MaxMana)
             {
                 Mana += 0.1f * Time.deltaTime;
@@ -89,9 +98,15 @@ namespace TP1_Encapsulation.Correction
         {
             //if (isInvincible==true) return;
             if (isInvincible) return;
+            if (isDead) return;
             if (damage > 0)
+            {
                 Health -= damage;
-           
+                ActivateInvincibility(3f); // 1 seconde d'invincibilité après avoir pris des dégâts
+
+
+            }
+
         }
 
         public void Heal(int amount)
@@ -116,7 +131,7 @@ namespace TP1_Encapsulation.Correction
             return false;
         }
 
-      
+
         public bool SpendMana(float amount)
         {
             if (Mana >= amount && amount > 0)
@@ -160,6 +175,7 @@ namespace TP1_Encapsulation.Correction
         {
             Debug.Log($"Player {PlayerName} is dead!");
             // Logique de mort ici
+            IsDead = true;
         }
     }
 

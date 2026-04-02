@@ -61,7 +61,7 @@ namespace TP1_Encapsulation.Correction
             CheckGrounded();
 
             // Gestion du saut
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && isGrounded && !playerCharacter.IsDead)
             {
                 Jump();
             }
