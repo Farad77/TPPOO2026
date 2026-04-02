@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Water
+  - Dirt
+  - Ice
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,6 @@ TagManager:
   - UI
   - Player
   - Ennemy
-  - 
   - 
   - 
   - 
