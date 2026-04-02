@@ -186,4 +186,4 @@ MonoBehaviour:
   acceleration: 10
   handling: 80
   brakeForce: 10
-  boatBuoyancy: 15
+  boatBuoyancy: 20
