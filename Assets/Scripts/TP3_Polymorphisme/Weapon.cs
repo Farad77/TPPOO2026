@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+namespace TP3_Polymorphisme
 {
-    public string weaponName;
-    public int damage;
+    public abstract class Weapon : MonoBehaviour
+    {
+        public string weaponName;
+        public int damage;
 
-    public abstract void Attack();
+        public abstract void Attack();
+    }
 }
