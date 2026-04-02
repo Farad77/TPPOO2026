@@ -1,0 +1,52 @@
+
+    public string _playerName;
+    [SerializeField] protected int health; // En Protected pour que d'autres script puissent y avoir accés.
+    [SerializeField] private int maxHealth; //En private pour ne plus pouvoir la modifiée
+    [SerializeField] private float moveSpeed = 10; //En private pour ne plus pouvoir la modifiée
+    private int gold; //En private pour ne plus pouvoir la modifiée
+    private bool isInvincible; //En private pour ne plus pouvoir la modifiée
+
+
+void Update()
+{
+    if (health <= 0)
+    {
+        Debug.Log("Player is dead");
+    }
+
+    if (health > maxHealth)
+    {
+        health = maxHealth; // Empêche la vie de dépasser son maximum.
+    }
+    moveSpeed = 10; //Empêche la vitesse de dépasser 10.
+}
+
+
+Fait en sorte que si la vie descends en dessous de 0 elle soit toujours à 0.
+
+public void TakeDamage(int amount)
+{
+    health -= amount;
+
+    if (health < 0)
+    {
+        health = 0;
+    }
+}
+
+
+
+Fonction qui fait perdre de l'or au joueur tout en ne passant pas en négatifs.
+    public void LoseGold(int amount)
+    {
+        gold -= amount;
+        if (gold < 0)
+        {
+            gold = 0; 
+        }
+
+        if (gold == 0)
+        {
+            print("Plus d'or");
+        }
+    }
