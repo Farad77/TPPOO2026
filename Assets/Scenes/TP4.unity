@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6cbc8509df87445946ba3a57ba8ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IsometricCamera
-  targetToFollow: {fileID: 0}
+  targetToFollow: {fileID: 7957357827143048399}
   height: 10
   distance: 10
   followSpeed: 5
@@ -933,14 +933,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7027269396763180489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &915605581983335393
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3475878478707288881}
-  m_Mesh: {fileID: -3878398597194561364, guid: 78e7827ff33751348bb796fe53159766, type: 3}
 --- !u!4 &1147236362442114446
 Transform:
   m_ObjectHideFlags: 0
@@ -1308,24 +1300,6 @@ Transform:
   - {fileID: 7511604063918085624}
   m_Father: {fileID: 1147236362442114446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3475878478707288881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1343156189339053051}
-  - component: {fileID: 915605581983335393}
-  - component: {fileID: 7869392931161718150}
-  m_Layer: 0
-  m_Name: kidoleon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &3494096903613748874
 GameObject:
   m_ObjectHideFlags: 0
