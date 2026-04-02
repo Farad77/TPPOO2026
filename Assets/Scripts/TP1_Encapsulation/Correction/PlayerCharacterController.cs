@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TP3_Polymorphisme;
 using UnityEngine;
 
 namespace TP1_Encapsulation.Correction
@@ -9,6 +10,7 @@ namespace TP1_Encapsulation.Correction
     {
         private PlayerCharacter playerCharacter;
         private Rigidbody rb;
+        private WeaponManager weaponManager;
 
         [SerializeField] private float jumpForce = 10f;
         [SerializeField] private LayerMask groundLayer;
@@ -33,6 +35,7 @@ namespace TP1_Encapsulation.Correction
         {
             playerCharacter = GetComponent<PlayerCharacter>();
             animator = GetComponent<Animator>();
+            weaponManager = GetComponent<WeaponManager>();
 
             // Configurer le rigidbody pour un jeu 3D
             rb = GetComponent<Rigidbody>();
@@ -72,6 +75,17 @@ namespace TP1_Encapsulation.Correction
                 TryDash();
             }
 
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                weaponManager.Attack();
+            }
+
+            // Gestion du changement d'arme
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                weaponManager.NextWeapon();
+            }
+
             // Mise � jour des animations (si besoin)
             UpdateAnimations();
         }
@@ -106,13 +120,13 @@ namespace TP1_Encapsulation.Correction
 
         private void Jump()
         {
-            
+
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
         private void CheckGrounded()
         {
-            
+
             isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
         }
 

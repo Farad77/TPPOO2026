@@ -1,0 +1,29 @@
+using TP3_Polymorphisme;
+using UnityEngine;
+
+namespace TP3_Polymorphisme
+{
+    public class Wand : Weapon
+    {
+        public override void Attack()
+        {
+            Debug.Log("Casting a spell for " + damage + " damage!");
+
+            PlayerCharacter player = GetComponent<PlayerCharacter>();
+            if (player != null && player.SpendMana(15f))
+            {
+                // Création d'un projectile magique
+                GameObject spellPrefab = Resources.Load<GameObject>("Spell");
+                if (spellPrefab != null)
+                {
+                    GameObject spell = Instantiate(spellPrefab, transform.position + transform.forward, Quaternion.identity);
+                    spell.GetComponent<Rigidbody>().linearVelocity = transform.forward * 15f;
+                }
+            }
+            else
+            {
+                Debug.Log("Not enough mana!");
+            }
+        }
+    }
+}
