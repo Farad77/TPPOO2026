@@ -9,7 +9,7 @@ public class Plane : FlyingVehicle
         if (speed > maxSpeed * 0.3f)
         {
             float liftForce = airplaneLift * (speed / maxSpeed);
-            transform.Translate(Vector3.up * liftForce * Time.deltaTime, Space.World);
+            transform.Translate(Time.deltaTime * liftForce * Vector3.up, Space.World);
         }
     }
 }
