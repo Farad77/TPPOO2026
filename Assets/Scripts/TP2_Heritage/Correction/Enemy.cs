@@ -38,6 +38,7 @@ namespace TP2_Heritage.Correction
         
         public virtual void TakeDamage(int amount)
         {
+            Debug.Log($"{gameObject.name} takes {amount} damage.");
             health -= amount;
             OnDamageReceived(amount);
             

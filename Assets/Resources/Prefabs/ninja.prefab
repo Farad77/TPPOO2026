@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &354124965369738723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5283873188190190050}
+  m_Layer: 8
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5283873188190190050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354124965369738723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.442, y: -0.235, z: 0.771}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6622603976917662635}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6622603976917662632
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,8 +45,8 @@ GameObject:
   - component: {fileID: 6622603976917662640}
   - component: {fileID: 6622603976917662645}
   - component: {fileID: 6622603976917662642}
-  - component: {fileID: 5478020609425407396}
-  - component: {fileID: 5822608522616890909}
+  - component: {fileID: 1776623079025537747}
+  - component: {fileID: 7441642100648705589}
   m_Layer: 8
   m_Name: ninja
   m_TagString: Player
@@ -30,13 +61,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6622603976917662632}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.3409998, y: 1.099, z: 2.167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5283873188190190050}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &6622603976917662634
 MeshCollider:
@@ -131,6 +163,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -156,7 +191,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5478020609425407396
+--- !u!114 &1776623079025537747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,14 +206,14 @@ MonoBehaviour:
   jumpForce: 10
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   groundCheck: {fileID: 0}
   groundCheckRadius: 0.2
   dashEffect: {fileID: 0}
   dashCost: 25
   dashMultiplier: 2.5
   dashDuration: 0.5
---- !u!114 &5822608522616890909
+--- !u!114 &7441642100648705589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,8 +222,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6622603976917662632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef28632186767a4eb9d180e5ec5f906, type: 3}
+  m_Script: {fileID: 11500000, guid: 61379a97eef18954687adedbb6a04923, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  weapons: []
-  weaponHotkeys: 3100000032000000
+  m_EditorClassIdentifier: Assembly-CSharp::TP3_Polymorphisme.WeaponManager
+  weapons:
+  - {fileID: -4446954773467368791, guid: b9e7b123e1e21bc4f840c1101b29d92d, type: 3}
+  - {fileID: 6833474381035865901, guid: d994dfba0ca38904d97ba2d2f8f00664, type: 3}
+  - {fileID: 2178712877904507771, guid: 61b804b156c13bd4399f2e8f110d7f3e, type: 3}
+  - {fileID: 8948623047822050737, guid: 86fbc59deadc53d4c8409329982fd41f, type: 3}
+  currentWeapon: {fileID: 0}
+  actualWeaponIndex: 0
+  handPlayer: {fileID: 5283873188190190050}

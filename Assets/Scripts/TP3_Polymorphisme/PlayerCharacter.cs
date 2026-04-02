@@ -81,8 +81,9 @@ namespace TP3_Polymorphisme
             {
                 Mana += 0.1f * Time.deltaTime;
             }
+
         }
-        
+
         // Méthodes publiques avec logique de validation
         public void TakeDamage(int damage)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TP3_Polymorphisme;
 using UnityEngine;
 
 namespace TP1_Encapsulation.Correction
@@ -70,6 +71,25 @@ namespace TP1_Encapsulation.Correction
             if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing)
             {
                 TryDash();
+            }
+
+
+            // En appuyant sur E, on change d'arme (exemple de polymorphisme)
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                WeaponManager weaponManager = GetComponent<WeaponManager>();
+                if (weaponManager != null)
+                {
+                    weaponManager.NextWeapon();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                WeaponManager weaponManager = GetComponent<WeaponManager>();
+                if (weaponManager != null)
+                {
+                    weaponManager.Attack();
+                }
             }
 
             // Mise � jour des animations (si besoin)

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2491077609674934210
+--- !u!1 &7175514912481628567
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2733901211894095062}
-  - component: {fileID: 8646703407475245631}
-  - component: {fileID: 366257473628296884}
-  - component: {fileID: 2178712877904507771}
+  - component: {fileID: 1974625912248517564}
+  - component: {fileID: 7133078088806745476}
+  - component: {fileID: 4717785796435032122}
+  - component: {fileID: -4446954773467368791}
   m_Layer: 0
-  m_Name: sword
+  m_Name: Wand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2733901211894095062
+--- !u!4 &1974625912248517564
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491077609674934210}
+  m_GameObject: {fileID: 7175514912481628567}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.7301188, y: 0, z: 1.8871641}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 65.018074, y: 0.963, z: 28.171642}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &8646703407475245631
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7133078088806745476
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491077609674934210}
-  m_Mesh: {fileID: -3874385891877125788, guid: 0e4922a84ee105a42a68ac279edf82a8, type: 3}
---- !u!23 &366257473628296884
+  m_GameObject: {fileID: 7175514912481628567}
+  m_Mesh: {fileID: 624574093473539663, guid: dce16100dbdeed0428c896f428df8acf, type: 3}
+--- !u!23 &4717785796435032122
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491077609674934210}
+  m_GameObject: {fileID: 7175514912481628567}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3139f8cd01919b748a0b88cc4dcfd0a1, type: 2}
+  - {fileID: 2100000, guid: 0621a1667956d804b94a348abc2430b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,16 +87,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2178712877904507771
+--- !u!114 &-4446954773467368791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491077609674934210}
+  m_GameObject: {fileID: 7175514912481628567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a7a90692aa11646a9a13c2582ee720, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b2b096a4871117458682be4f2e8aa4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Sword
+  weaponName: Wand

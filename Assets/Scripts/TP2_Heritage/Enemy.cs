@@ -41,6 +41,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        Debug.Log($"{gameObject.name} takes {amount} damage.");
         health -= amount;
         if (health <= 0)
         {
