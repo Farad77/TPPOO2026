@@ -179,36 +179,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5965703522537488019, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965703522537488019, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965703522537488019, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965703522537488019, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965703522537488019, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
+      propertyPath: detectionRange
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 794586195629477050, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 794586195629477052, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 32653294}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
---- !u!1 &32653293 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 794586195629477052, guid: c4c60e351ca24f342a500019a339f51d, type: 3}
-  m_PrefabInstance: {fileID: 32653292}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &32653294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32653293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54e764029822b940a0d15e98770a61a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TP2_Heritage.Zombie
-  health: 100
-  damage: 10
-  speed: 2
-  detectionRange: 10
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,23 +235,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 4
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!108 &203844588
 Light:
   m_ObjectHideFlags: 0
@@ -264,14 +254,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203844586}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -392,6 +382,7 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
+  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -399,7 +390,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
 --- !u!81 &961739751
 AudioListener:
   m_ObjectHideFlags: 0
@@ -642,7 +632,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  serializedVersion: 10
+  serializedVersion: 9
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1
@@ -657,12 +647,6 @@ LightingSettings:
   m_BakeResolution: 40
   m_Padding: 2
   m_LightmapCompression: 3
-  m_LightmapPackingMode: 1
-  m_LightmapPackingMethod: 0
-  m_XAtlasPackingAttempts: 16384
-  m_XAtlasBruteForce: 0
-  m_XAtlasBlockAlign: 0
-  m_XAtlasRepackUnderutilizedLightmaps: 1
   m_AO: 0
   m_AOMaxDistance: 1
   m_CompAOExponent: 1
@@ -711,10 +695,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7946418422518039884, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946418422518039884, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.7496376
       objectReference: {fileID: 0}
@@ -758,36 +738,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: skelette (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5227478500051923493, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8641412197260939047, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2114565935}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
 --- !u!1 &2114565934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8641412197260939047, guid: 9501aa27e6f82da4084397796bbc3d49, type: 3}
   m_PrefabInstance: {fileID: 2114565933}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2114565935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114565934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9e25ec95edeb784d97a151ff94e291d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TP2_Heritage.Skeleton
-  health: 80
-  damage: 15
-  speed: 3
-  detectionRange: 12
 --- !u!1 &3297608567947134438
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,13 +760,14 @@ GameObject:
   - component: {fileID: 4726583578241422848}
   - component: {fileID: 4134091950456534884}
   - component: {fileID: 7957658081482779241}
+  - component: {fileID: 7957658081482779242}
   m_Layer: 0
   m_Name: gundam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &4134091950456534884
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -827,8 +788,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -850,11 +809,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &4240454730738891010
 MeshFilter:
@@ -884,8 +841,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -907,11 +862,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &4726583578241422848
 MeshFilter:
@@ -1066,6 +1019,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9602218, y: 1.8227828, z: 1.9461042}
   m_Center: {x: 0.019305259, y: -0.0077359974, z: -0.025079131}
+--- !u!114 &7957658081482779242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297608567947134438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e50e3ba45bc346499a3e5edd8f51dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  damage: 20
+  maxSpeed: 8
+  speed: 4
+  detectionRange: 20
+  spawn: {fileID: 2114565934}
+  canSpawn: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
