@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Vehicle : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float maxSpeed;
-    [SerializeField] private float acceleration;
-    [SerializeField] private float handling;
-    [SerializeField] private float brakeForce;
+    [SerializeField] protected float speed;
+    [SerializeField] protected float maxSpeed;
+    [SerializeField] protected float acceleration;
+    [SerializeField] protected float handling;
+    [SerializeField] protected float brakeForce;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
