@@ -5425,6 +5425,7 @@ GameObject:
   - component: {fileID: 1476695590}
   - component: {fileID: 1476695596}
   - component: {fileID: 1476695597}
+  - component: {fileID: 1476695600}
   - component: {fileID: 1476695599}
   m_Layer: 0
   m_Name: Player
@@ -5557,12 +5558,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476695588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac3d1f43bc0f1814594657f7e7ce6f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TP1_Encapsulation.PlayerCharacterBroken
-  playerName: 
   health: 10
   maxHealth: 10
   moveSpeed: -10
@@ -5575,7 +5575,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476695588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24a700bb6c89e649917732aef0e0d53, type: 3}
   m_Name: 
@@ -5597,15 +5597,40 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476695588}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00011f2b5934a5946a30b10c664cdcfc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c4818bc5484b5445a2751878b5c6aa3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  _playerName: 
-  health: 10
-  maxHealth: 10
-  moveSpeed: 10
+  m_EditorClassIdentifier: Assembly-CSharp::TP1_Encapsulation.Correction.PlayerCharacterController
+  jumpForce: 10
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 0.2
+  dashEffect: {fileID: 0}
+  dashCost: 25
+  dashMultiplier: 2.5
+  dashDuration: 0.5
+--- !u!114 &1476695600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476695588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415a8d2064997264982dde066cbde2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TP1_Encapsulation.Correction.PlayerCharacter
+  playerName: 
+  health: 0
+  maxHealth: 100
+  moveSpeed: 5
+  gold: 0
+  mana: 100
+  maxMana: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

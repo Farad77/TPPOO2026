@@ -84,8 +84,9 @@ namespace TP1_Encapsulation
             // Appliquer le mouvement
             if (!isDashing)
             {
-                Move();
+                //Move();
             }
+            Move();
         }
 
         private void Move()
