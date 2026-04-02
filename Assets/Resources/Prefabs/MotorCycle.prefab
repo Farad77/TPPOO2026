@@ -107,6 +107,7 @@ MonoBehaviour:
   handling: 10
   brakeForce: 60
   motorcycleLeanAngle: 50
+  model: {fileID: 7175514912481628567}
 --- !u!65 &1263148153626280013
 BoxCollider:
   m_ObjectHideFlags: 0

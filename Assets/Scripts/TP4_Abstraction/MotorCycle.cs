@@ -5,13 +5,15 @@ public class MotorCycle : Vehicule
 
     [SerializeField]
     private float motorcycleLeanAngle;
+    [SerializeField]
+    private GameObject model;
     void ApplyMotorcycleLean(float turnInput)
     {
         // Simuler l'inclinaison d'une moto dans les virages
         float targetLean = -turnInput * motorcycleLeanAngle;
-        Vector3 currentRotation = transform.localEulerAngles;
+        Vector3 currentRotation = model.transform.localEulerAngles;
         currentRotation.z = Mathf.LerpAngle(currentRotation.z, targetLean, Time.deltaTime * 2.0f);
-        transform.localEulerAngles = currentRotation;
+        model.transform.localEulerAngles = currentRotation;
     }
 
     public override void Accelerate(float moveInput, float turnInput)
