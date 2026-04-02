@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TP3_Polymorphisme
+namespace TP2_Heritage.Correction
 {
     public class Sword : Weapon
     {
@@ -15,7 +15,10 @@ namespace TP3_Polymorphisme
             {
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.TryGetComponent<Enemy>(out Enemy enemy)) enemy.TakeDamage(25);
+                    if (hitCollider != null)
+                    {
+                        if (hitCollider.TryGetComponent<Enemy>(out Enemy enemy)) enemy.TakeDamage(25);
+                    }
                 }
             }
         }
