@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace TP3_Polymorphisme
 {
-    // Version du PlayerCharacter pour le TP3
     public class PlayerCharacter : MonoBehaviour
     {
         [SerializeField] private string playerName;
@@ -21,7 +20,7 @@ namespace TP3_Polymorphisme
         public int Health 
         { 
             get { return health; }
-            private set { health = Mathf.Clamp(value, 0, maxHealth); }
+            set { health = Mathf.Clamp(value, 0, MaxHealth); }
         }
         
         public int MaxHealth 
@@ -59,17 +58,22 @@ namespace TP3_Polymorphisme
             get { return maxMana; }
             private set { maxMana = Mathf.Max(1, value); }
         }
+
+        public bool IsDead
+        {
+            get => Health <= 0;
+        }
         
         private void Start()
         {
             // Initialisation avec validation
-            Health = maxHealth;
+            health = maxHealth;
             Mana = maxMana;
         }
         
         void Update()
         {
-            if (Health <= 0)
+            if (IsDead)
             {
                 Die();
             }
@@ -119,6 +123,23 @@ namespace TP3_Polymorphisme
         {
             Debug.Log($"Player {PlayerName} is dead!");
             // Logique de mort ici
+        }
+
+        public void ActivateInvincibility(float duration)
+        {
+            StartCoroutine(InvincibilityRoutine(duration));
+        }
+
+        private IEnumerator InvincibilityRoutine(float duration)
+        {
+            IsInvincible = true;
+            yield return new WaitForSeconds(duration);
+            IsInvincible = false;
+        }
+
+        public void SetMoveSpeed(float newSpeed)
+        {
+            MoveSpeed = newSpeed; // La validation est faite dans la propriété
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TP1_Encapsulation
     {
 
         [SerializeField]
-        private string playerName;
+        protected string playerName;
 
         [Header("Health Settings")]
 
@@ -45,10 +45,16 @@ namespace TP1_Encapsulation
         [SerializeField]
         private float invincibilityDuration = 5f;
 
+        public int MaxHealth { get => maxHealth; set => maxHealth = value; }
+        public int Health { get => health; set => health = Mathf.Clamp(value, 0, MaxHealth); }
+
+        public bool IsDead { get => health <= 0;}
+
+
         void Update()
         {
 
-            if (health <= 0)
+            if (Health <= 0)
             {
                 Debug.Log("Player is dead");
             }
@@ -123,7 +129,7 @@ namespace TP1_Encapsulation
         /// <returns></returns>
         public float getHealth()
         {
-            return health;
+            return Health;
         }
 
         /// <summary>
@@ -135,12 +141,12 @@ namespace TP1_Encapsulation
         public float setHealth(int newHealth)
         {
             if (newHealth < 0)
-                health = 0;
-            else if (newHealth > maxHealth)
-                health = maxHealth;
+                Health = 0;
+            else if (newHealth > MaxHealth)
+                Health = MaxHealth;
             else
-                health = newHealth;
-            return health;
+                Health = newHealth;
+            return Health;
         }
 
         /// <summary>
@@ -150,12 +156,12 @@ namespace TP1_Encapsulation
         /// <param name="amount"></param>
         public void Heal(int amount)
         {
-            if (health >= maxHealth || health <= 0)
+            if (Health >= MaxHealth || Health <= 0)
             {
                 return;
             }
 
-            int temphealth = health + amount;
+            int temphealth = Health + amount;
             setHealth(temphealth);
         }
 
@@ -166,12 +172,12 @@ namespace TP1_Encapsulation
         /// <param name="amount"></param>
         public void TakeDamage(int amount)
         {
-            if (health <= 0 || isInvincible)
+            if (Health <= 0 || isInvincible)
             {
                 return;
             }
 
-            int temphealth = health + amount;
+            int temphealth = Health + amount;
             setHealth(temphealth);
 
         }
