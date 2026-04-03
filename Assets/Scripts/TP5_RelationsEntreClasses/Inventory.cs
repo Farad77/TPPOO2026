@@ -18,7 +18,7 @@ namespace TP5
             return itemCount;
         }
 
-        // Methods
+        // Méthode spécifique
         public void AddItem(Item item)
         {
             items.Add(item);

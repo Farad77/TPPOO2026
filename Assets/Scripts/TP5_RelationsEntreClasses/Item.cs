@@ -8,6 +8,7 @@ namespace TP5
         private float weight;
         private int value;
 
+        // Getters
         public string getName()
         {
             return name;
@@ -28,6 +29,7 @@ namespace TP5
             return value;
         }
 
+        // Méthode spécifique à réécrire
         public virtual void UseItem(Player player)
         {
         }

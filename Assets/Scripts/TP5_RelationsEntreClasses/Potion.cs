@@ -17,7 +17,7 @@ public class Potion : Item
         return duration;
     }
 
-    // Methods
+    // Méthode spéficique
     public override void UseItem(Player player)
     {
         // Logique d'utilisation d'une potion

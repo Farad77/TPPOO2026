@@ -1,19 +1,17 @@
+using Unity.VisualScripting;
+
 namespace TP5
 {
     public class Player
     {
-        public string name;
-        public int health;
-        public int maxHealth;
+        private string name;
+        private int health;
+        private int maxHealth;
 
         // L'inventaire est directement intégré dans la classe Player
         private Inventory inventory = new Inventory();
 
-        // Des références directes aux objets équipés
-        public Item equippedWeapon;
-        public Item equippedHelmet;
-        public Item equippedChest;
-        public Item equippedBoots;
+        private PlayerEquipements equipements = new PlayerEquipements();
 
         // Getter et Setter
         public string getName()
@@ -26,6 +24,24 @@ namespace TP5
             return health;
         }
 
+        public float getMaxHealth()
+        {
+            return maxHealth;
+        }
+
+        public PlayerEquipements getEquipements()
+        {
+            return equipements;
+        }
+
+        public Inventory GetInventory()
+        {
+            return inventory;
+        }
+
+
+
+        // Méthodes spécifiques
         public void Attack(int damage)
         {
             // Logique d'attaque avec l'arme équipée
@@ -44,9 +60,14 @@ namespace TP5
             System.Console.WriteLine($"{name} perd {amount} points de vie!");
         }
 
-        public void EquipArmor(Armor armor)
+        public void UseItem(Item item)
         {
+            item.UseItem(this);
+        }
 
+        public void EquipItem(Equipement equipement)
+        {
+            equipements.EquipItem(equipement);
         }
     }
 }
