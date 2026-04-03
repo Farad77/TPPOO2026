@@ -15,34 +15,38 @@ namespace TP5
             get => index;
             private set
             {
-                index = (value < 0) ? Storage.Count - 1 : (value >= Storage.Count) ? 0 : value;
+                index = (value < 0) ? (Storage.Count - 1 < 0) ? 0 : Storage.Count : (value >= Storage.Count) ? 0 : value;
             }
         }
 
 
-        public Collectible GetItem() => (storage.Count > 0) ? storage[index] : null;
+        public Collectible GetItem()
+        {
+            if (Storage.Count == 0) return null;
+            return Storage[index];
+        }
 
 
-        public bool HasItem(Collectible item) => storage.Contains(item);
+        public bool HasItem(Collectible item) => Storage.Contains(item);
 
 
-        public void AddToInventory(Collectible item) => storage.Add(item);
+        public void AddToInventory(Collectible item) => Storage.Add(item);
 
 
-        public void ClearInventory() => storage.Clear();
+        public void ClearInventory() => Storage.Clear();
 
 
         public void RemoveItem(Collectible item) 
         {
-            int index = storage.IndexOf(item);
+            int index = Storage.IndexOf(item);
             Destroy(storage[index]);
-            storage.RemoveAt(index);
+            Storage.RemoveAt(index);
         }
 
 
         public void RemoveItemNonDestructive(Collectible item)
         {
-            storage.Remove(item);
+            Storage.Remove(item);
         }
 
 
@@ -55,9 +59,9 @@ namespace TP5
         public float GetWeight()
         {
             float weight = 0f;
-            for (int i = 0; i < storage.Count; i++)
+            for (int i = 0; i < Storage.Count; i++)
             {
-                weight += storage[i].Weight;
+                weight += Storage[i].Weight;
             }
             return weight;
         }

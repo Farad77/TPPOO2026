@@ -35,12 +35,12 @@ namespace TP5
         public int Weight { get => weight; private set { } }
 
 
-        [SerializeField] private int itemName;
-        public int ItemName { get => itemName; private set { } }
+        [SerializeField] private string itemName;
+        public string ItemName { get => itemName; private set { } }
 
 
-        [SerializeField] private int description;
-        public int Description { get => description; private set { } }
+        [SerializeField] private string description;
+        public string Description { get => description; private set { } }
 
 
         public GameObject Collect()

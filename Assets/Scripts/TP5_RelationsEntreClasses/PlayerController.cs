@@ -1,4 +1,5 @@
 using TP5;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : LivingObject, IMovement
@@ -8,8 +9,8 @@ public class PlayerController : LivingObject, IMovement
 
     private void Start() 
     {
-        inventory = new();
-        equipment = new();
+        inventory = this.AddComponent<Inventory>();
+        equipment = this.AddComponent<Inventory>();
     }
 
 
@@ -22,6 +23,7 @@ public class PlayerController : LivingObject, IMovement
 
     private void OnUse() 
     {
+        if (inventory.GetItem() == null) return;
         Collectible currentItem = inventory.GetItem();
         if (currentItem == null) return;
         if (currentItem.TryGetComponent<IUsable>(out IUsable item))
