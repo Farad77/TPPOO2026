@@ -93,6 +93,7 @@ public class VehicleController : MonoBehaviour
         else if (vehicleType == VehicleType.Boat)
         {
             transform.Rotate(0, turnInput * handling * speed * 0.05f * Time.deltaTime, 0);
+            ApplyBoatBuoyancy();
         }
         
         // Déplacement
