@@ -7,13 +7,24 @@ namespace TP5
         public int maxHealth;
 
         // L'inventaire est directement intégré dans la classe Player
-        public Inventory inventory = new Inventory();
+        private Inventory inventory = new Inventory();
 
         // Des références directes aux objets équipés
         public Item equippedWeapon;
         public Item equippedHelmet;
         public Item equippedChest;
         public Item equippedBoots;
+
+        // Getter et Setter
+        public string getName()
+        {
+            return name;
+        }
+
+        public float getHealth()
+        {
+            return health;
+        }
 
         public void Attack(int damage)
         {
@@ -27,23 +38,15 @@ namespace TP5
             System.Console.WriteLine($"{name} restaure {amount} points de vie!");
         }
 
-        public void EquipArmor(Item armor)
+        public void LoseHealth(int amount)
         {
-            if (armor.itemType == "Armor")
-            {
-                if (armor.armorType == "Helmet")
-                {
-                    equippedHelmet = armor;
-                }
-                else if (armor.armorType == "Chest")
-                {
-                    equippedChest = armor;
-                }
-                else if (armor.armorType == "Boots")
-                {
-                    equippedBoots = armor;
-                }
-            }
+            health = System.Math.Max(health - amount, 0);
+            System.Console.WriteLine($"{name} perd {amount} points de vie!");
+        }
+
+        public void EquipArmor(Armor armor)
+        {
+
         }
     }
 }
