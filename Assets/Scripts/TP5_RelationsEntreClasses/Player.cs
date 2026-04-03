@@ -1,6 +1,8 @@
+using UnityEngine;
+
 namespace TP5
 {
-    public class Player
+    public class Player : MonoBehaviour
     {
         public string name;
         public int health;
@@ -9,16 +11,16 @@ namespace TP5
         // L'inventaire est directement intégré dans la classe Player
         public Inventory inventory = new Inventory();
 
-        // Des références directes aux objets équipés
-        public Item equippedWeapon;
-        public Item equippedHelmet;
-        public Item equippedChest;
-        public Item equippedBoots;
-
-        public void Attack(int damage)
+        public void UseSelectedItem()
         {
-            // Logique d'attaque avec l'arme équipée
-            System.Console.WriteLine($"{name} attaque pour {damage} points de dégâts!");
+            if (inventory.currentSelectedItem != null)
+            {
+                inventory.currentSelectedItem.UseItem(this);
+            }
+            else
+            {
+                System.Console.WriteLine("Aucun item sélectionné!");
+            }
         }
 
         public void RestoreHealth(int amount)
@@ -27,23 +29,9 @@ namespace TP5
             System.Console.WriteLine($"{name} restaure {amount} points de vie!");
         }
 
-        public void EquipArmor(Item armor)
+        public void EquipArmor(Armor armor)
         {
-            if (armor.itemType == "Armor")
-            {
-                if (armor.armorType == "Helmet")
-                {
-                    equippedHelmet = armor;
-                }
-                else if (armor.armorType == "Chest")
-                {
-                    equippedChest = armor;
-                }
-                else if (armor.armorType == "Boots")
-                {
-                    equippedBoots = armor;
-                }
-            }
+            inventory.EquipItem(armor);
         }
     }
 }
