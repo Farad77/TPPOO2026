@@ -1,10 +1,12 @@
+using UnityEngine;
+
 namespace TP5
 {
     public class Player
     {
-        public string name;
-        public int health;
-        public int maxHealth;
+        [SerializeField] private string name;
+        [SerializeField] private int health;
+        [SerializeField] private int maxHealth;
 
         // L'inventaire est directement intégré dans la classe Player
         public Inventory inventory = new Inventory();
