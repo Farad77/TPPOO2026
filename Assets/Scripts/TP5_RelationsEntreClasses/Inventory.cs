@@ -1,41 +1,65 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace TP5
 {
-    public class Inventory
+    public class Inventory : MonoBehaviour
     {
-        public Item[] items = new Item[20]; // Taille fixe d'inventaire
-        public int itemCount = 0;
+        private List<Collectible> storage;
+        public List<Collectible> Storage { get => storage ??= new(); private set { } }
 
-        public void AddItem(Item item)
+
+        private int index;
+        public int Index
         {
-            if (itemCount < items.Length)
+            get => index;
+            private set
             {
-                items[itemCount] = item;
-                itemCount++;
+                index = (value < 0) ? Storage.Count - 1 : (value >= Storage.Count) ? 0 : value;
             }
         }
 
-        public void RemoveItem(int index)
+
+        public Collectible GetItem() => (storage.Count > 0) ? storage[index] : null;
+
+
+        public bool HasItem(Collectible item) => storage.Contains(item);
+
+
+        public void AddToInventory(Collectible item) => storage.Add(item);
+
+
+        public void ClearInventory() => storage.Clear();
+
+
+        public void RemoveItem(Collectible item) 
         {
-            if (index >= 0 && index < itemCount)
-            {
-                // Décaler tous les éléments
-                for (int i = index; i < itemCount - 1; i++)
-                {
-                    items[i] = items[i + 1];
-                }
-                items[itemCount - 1] = null;
-                itemCount--;
-            }
+            int index = storage.IndexOf(item);
+            Destroy(storage[index]);
+            storage.RemoveAt(index);
         }
 
-        public float GetTotalWeight()
+
+        public void RemoveItemNonDestructive(Collectible item)
         {
-            float totalWeight = 0;
-            for (int i = 0; i < itemCount; i++)
+            storage.Remove(item);
+        }
+
+
+        public void Previous() => index--;
+
+
+        public void Next() => index++;
+
+
+        public float GetWeight()
+        {
+            float weight = 0f;
+            for (int i = 0; i < storage.Count; i++)
             {
-                totalWeight += items[i].weight;
+                weight += storage[i].Weight;
             }
-            return totalWeight;
+            return weight;
         }
     }
 }
